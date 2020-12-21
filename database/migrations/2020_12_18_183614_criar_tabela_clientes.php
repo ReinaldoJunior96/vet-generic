@@ -14,11 +14,11 @@ class CriarTabelaClientes extends Migration
     public function up()
     {
         Schema::create('tbl_clientes', function (Blueprint $table) {
-            $table->id('idcliente')->unsigned();
-            $table->string('proprietario')->nullable();
+            $table->id('idcliente');
+            $table->string('nomeProprietario')->nullable();
+            $table->string('documento')->nullable();
             $table->string('contato1')->nullable();
             $table->string('contato2')->nullable();
-            $table->string('documento')->nullable();
             $table->text('endereco')->nullable();
             //$table->timestamps();
         });

@@ -14,13 +14,16 @@ class CriarTabelaAtendimento extends Migration
     public function up()
     {
         Schema::create('tbl_atendimento', function (Blueprint $table) {
-            $table->id();
-            $table->string('peso');
-            $table->dateTime('data');
-            $table->text('anamnese');
-            $table->text('exames')
-            $table->string('');
-            $table->timestamps();
+            $table->id('idAtendimento');
+            $table->unsignedBigInteger('codeAnimal');
+            $table->string('tipo')->nullable();
+            $table->text('anamnese')->nullable();
+            $table->text('exameFisico')->nullable();
+            $table->text('examesSolicitados')->nullable();
+            $table->text('observacao')->nullable();
+            $table->dateTime('dataCriacao');
+            $table->dateTime('dataAlteracao');
+            $table->foreign('codeAnimal')->references('idAnimal')->on('tbl_animais')->on('cascade');
         });
     }
 

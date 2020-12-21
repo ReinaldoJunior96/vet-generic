@@ -15,12 +15,15 @@ class CriarTabelaAnimais extends Migration
     {
         Schema::create('tbl_animais', function (Blueprint $table) {
             $table->id('idAnimal');
-            $table->unsignedBigInteger('idProprietario');
+            $table->unsignedBigInteger('codeProprietario');
             $table->string('nome')->nullable();
-            $table->string('idade')->nullable();
-            $table->string('raca')->nullable();
             $table->string('sexo')->nullable();
-            $table->foreign('idProprietario')->references('idCliente')->on('tbl_clientes')->onDelete('cascade');
+            $table->date('nascimento')->nullable();
+            $table->string('especie')->nullable();
+            $table->string('raca')->nullable();
+            $table->string('idade')->nullable();
+            $table->string('pelagem')->nullable();
+            $table->foreign('codeProprietario')->references('idCliente')->on('tbl_clientes')->onDelete('cascade');
             $table->timestamps();
         });
     }
