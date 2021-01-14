@@ -14,7 +14,7 @@ class CriarTabelaAnimais extends Migration
     public function up()
     {
         Schema::create('tbl_animais', function (Blueprint $table) {
-            $table->id('idAnimal');
+            $table->id('idAnimal')->unsigned();
             $table->unsignedBigInteger('codeProprietario');
             $table->string('nome')->nullable();
             $table->string('sexo')->nullable();

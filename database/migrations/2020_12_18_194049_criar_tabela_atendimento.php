@@ -23,7 +23,8 @@ class CriarTabelaAtendimento extends Migration
             $table->text('observacao')->nullable();
             $table->dateTime('dataCriacao');
             $table->dateTime('dataAlteracao');
-            $table->foreign('codeAnimal')->references('idAnimal')->on('tbl_animais')->on('cascade');
+            $table->foreign('codeAnimal')->references('idAnimal')->on('tbl_animais')->onDelete('cascade');
+
         });
     }
 
